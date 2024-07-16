@@ -20,6 +20,123 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+
+
+# BankDetailsForm Component
+
+The `BankDetailsForm` is a React component for collecting and submitting bank details including card number, card holder name, branch name, mobile number, and email. This form uses Supabase as the backend for storing the data.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Component Structure](#component-structure)
+- [State Variables](#state-variables)
+- [Form Validation](#form-validation)
+- [Form Submission](#form-submission)
+- [Styling](#styling)
+- [Dependencies](#dependencies)
+
+## Installation
+
+To use the `BankDetailsForm` component, you need to have Node.js and npm installed. Then follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Set up Supabase:
+
+    - Create a Supabase account and project.
+    - Get your Supabase URL and API Key from the project settings.
+    - Create a `.env` file in the root directory and add the following environment variables:
+
+
+    ```env
+    
+    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+## Usage
+
+You can use the `BankDetailsForm` component in your Next.js application as follows:
+
+```jsx
+import BankDetailsForm from "@/components/BankDetailsForm";
+
+export default function Home() {
+  return (
+    <div>
+      <BankDetailsForm />
+    </div>
+  );
+}
+```
+
+## Component Structure
+
+The `BankDetailsForm` component is structured as follows:
+
+- State variables to handle form inputs and errors.
+- A form with input fields for card number, card holder name, branch name, mobile number, and email.
+- Form validation to check for required fields and proper formatting.
+- Form submission handler to send data to Supabase.
+  
+## State Variables
+
+- `cardNumber` : Stores the card number input.
+- `cardHolderName` : Stores the card holder name input.
+- `branchName` : Stores the branch name input.
+- `mobileNumber` : Stores the mobile number input.
+- `email` : Stores the email input.
+- `errors` : Stores validation errors for each field.
+- `isSubmitted` : Indicates if the form has been successfully submitted.
+
+## Form Validation
+
+The `validateForm` function checks for:
+
+- Required fields: card number, card holder name, branch name, mobile number, and email.
+- Mobile number must be 10 digits.
+- Email must be in a valid format.
+
+## Form Submission
+
+The `handleSubmit` function:
+
+1. Prevents the default form submission behavior.
+2. Validates the form and sets errors if any.
+3. Sends the form data to Supabase if there are no validation errors.
+4. Clears the form fields upon successful submission.
+
+## Styling
+
+The component uses Tailwind CSS for styling. Ensure you have Tailwind CSS set up in your project.
+
+## Dependencies
+
+- **React**
+- **Supabase**
+- **Next.js**
+- **Tailwind CSS**
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
